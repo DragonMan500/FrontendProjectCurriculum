@@ -1,4 +1,4 @@
-/* Reset some default styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,37 +9,31 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* TODO: Style the navbar using Flexbox */
+
 .navbar {
     background-color: #333;
-    color: white;
     padding: 1rem 2rem;
-
-    /* TODO: Add display: flex here */
-
-    /* TODO: Add justify-content to space items apart */
-
-    /* TODO: Add align-items to center items vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
 }
 
-/* TODO: Style the logo */
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: linear-gradient(135deg, pink 50%, lightblue 50%);
 }
 
-/* TODO: Style the navigation links */
+
 .nav-links {
-    /* TODO: Remove default list styling */
     list-style: none;
-
-    /* TODO: Make the links display in a row using Flexbox */
-
-    /* TODO: Add gap or spacing between links */
+    display: flex;
+    gap: 120px;
+    color: blue;
 }
 
 .nav-links a {
-    color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
@@ -52,7 +46,6 @@ body {
 /* TODO: Style the search button */
 .search-button {
     background-color: #007bff;
-    color: white;
     border: none;
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
