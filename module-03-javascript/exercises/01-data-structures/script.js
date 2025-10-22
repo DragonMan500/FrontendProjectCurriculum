@@ -27,11 +27,20 @@ function addItem(name, quantity) {
     // - name: the item name
     // - quantity: the quantity
     // - purchased: false (new items aren't purchased yet)
+    let item = {
+        id: nextId,
+        name: name,
+        quantity: quantity,
+        purchased: false,
+    }
+
+    nextId++;
 
     // Add the object to the shoppingList array
-
+    shoppingList.push(item)
+        
     // Render the list
-
+    renderList();
     // Clear the inputs
     itemNameInput.value = '';
     itemQuantityInput.value = '1';
@@ -39,20 +48,25 @@ function addItem(name, quantity) {
 
 // TODO: Function to toggle purchased status
 function togglePurchased(id) {
+    let item = shoppingList.find((item) => (item.id == id))
     // Find the item in the array with matching id
     // Hint: Use array.find() method
-
+    console.log(item)
     // Toggle its purchased property (true ↔ false)
-
+    item.purchased = !item.purchased
     // Render the list
+    renderList();
+
 }
 
 // TODO: Function to delete an item
 function deleteItem(id) {
+    shoppingList = shoppingList.filter((item) => (item.id != id))
     // Remove the item from the array
     // Hint: Use array.filter() to keep all items except the one with this id
 
     // Render the list
+    renderList();
 }
 
 // TODO: Function to render the shopping list
@@ -64,9 +78,11 @@ function renderList() {
     let filteredItems = shoppingList;
 
     if (currentFilter === 'purchased') {
+        filteredItems = shoppingList.filter ((item) => (item.purchased === true))
         // TODO: Filter to show only purchased items
         // Hint: Use array.filter() where item.purchased === true
     } else if (currentFilter === 'unpurchased') {
+        filteredItems = shoppingList.filter ((item) => (item.purchased === false))
         // TODO: Filter to show only unpurchased items
         // Hint: Use array.filter() where item.purchased === false
     }
@@ -166,9 +182,8 @@ showUnpurchasedBtn.addEventListener('click', function() {
 // Initial render
 renderList();
 
-// Test data (uncomment to test)
-/*
+
 addItem('Milk', 2);
 addItem('Bread', 1);
 addItem('Eggs', 12);
-*/
+
