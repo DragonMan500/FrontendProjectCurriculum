@@ -15,18 +15,21 @@ let gameOver;
 
 // TODO: Function to start a new game
 function startNewGame() {
+    secretNumber = Math.floor(Math.random() * 100 + 1)
+console.log(secretNumber)    
     // Generate random number between 1 and 100
     // Hint: Math.random() * 100 gives 0-99, then add 1 and use Math.floor()
-
+    attempts = 0;
     // Reset attempts to 0
 
     // Set gameOver to false
-
+    gameOver = false
     // Clear feedback
-
+feedback.innerHTML = ""
     // Clear input
-
+guessInput.innerHTMLHTML = ""
     // Update attempts display
+    attemptsDisplay.innerHTML = attempts
 }
 
 // TODO: Function to check the guess
@@ -53,35 +56,45 @@ function checkGuess() {
     }
 
     // TODO: Increment attempts
-
+    attempts++;
     // TODO: Check if guess is correct
     if (guess === secretNumber) {
         // Player won!
+        console.log(`you won using ${attempts} attempts`)
         // Show success message with number of attempts
         // Set gameOver to true
+        gameOver = true
         // Add 'success' class to feedback
+        feedback.classList.add("success")
     }
-    // TODO: Check if guess is too low
-    else if (guess < secretNumber) {
-        // Show "Too low!" message
-        // Add 'hint' class to feedback
-
-        // BONUS: Give more specific hints based on how close they are
-        // If within 5: "Very close!"
-        // If within 10: "Close!"
-        // Otherwise: "Too low!"
+    else if (secretNumber < guess) {   
+        if (secretNumber - guess < 6) {
+            console.log("Very close!")
+            feedback.classList.add("hint")
+        }
+        else if (secretNumber - guess <= 10) {
+            console.log("Close")
+            feedback.classList.add("hint")
+        }
+        else if (secretNumber < guess) {
+            console.log("Too low!")
+            feedback.classList.add("hint")
+        }    
     }
-    // TODO: Guess is too high
-    else {
-        // Show "Too high!" message
-        // Add 'hint' class to feedback
-
-        // BONUS: Give more specific hints
-    }
-
-    // TODO: Update attempts display
-
-    // Clear input for next guess
+   else {   
+        if (guess - secretNumber < 6) {
+            console.log("Very close!")
+            feedback.classList.add("hint")
+        }
+        else if (guess - secretNumber <= 10) {
+            console.log("Close")
+            feedback.classList.add("hint")
+        }
+        else {
+            console.log("Too high!")
+            feedback.classList.add("hint")
+        }
+   }
     guessInput.value = '';
     guessInput.focus();
 }
@@ -98,4 +111,5 @@ guessInput.addEventListener('keypress', function(event) {
 resetBtn.addEventListener('click', startNewGame);
 
 // Start the game when page loads
-startNewGame();
+startNewGame()
+

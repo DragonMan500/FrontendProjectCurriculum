@@ -14,14 +14,15 @@ async function fetchUsers() {
     try {
         // TODO: Fetch data from https://jsonplaceholder.typicode.com/users
         // Hint: const response = await fetch(url);
-
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
         // TODO: Convert response to JSON
         // Hint: const data = await response.json();
+        const data = await response.json();
 
         // TODO: Display users
-        // Call displayUsers(data);
-
-        usersList.innerHTML = '<div class="error">Not implemented yet - check script.js!</div>';
+        // 
+        displayUsers(data);
+        //usersList.innerHTML = '<div class="error">Not implemented yet - check script.js!</div>';
 
     } catch (error) {
         // Handle errors
@@ -37,13 +38,20 @@ async function fetchPosts() {
     try {
         // TODO: Fetch from https://jsonplaceholder.typicode.com/posts
         // Get only first 10 posts
+const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        // TODO: Convert response to JSON
+        // Hint: const data = await response.json();
+        const data = await response.json();
 
+        // TODO: Display users
+        // 
+        displayPosts(data);
         // TODO: Convert to JSON
 
         // TODO: Display posts
         // Call displayPosts(data);
 
-        usersList.innerHTML = '<div class="error">Not implemented yet - check script.js!</div>';
+        //usersList.innerHTML = '<div class="error">Not implemented yet - check script.js!</div>';
 
     } catch (error) {
         usersList.innerHTML = `<div class="error">Error: ${error.message}</div>`;

@@ -5,23 +5,20 @@
 // ============================================
 
 // TODO: Convert this traditional function to an arrow function
-function addTraditional(a, b) {
-    return a + b;
-}
 
 // TODO: Write this as an arrow function
-const add = null; // Replace null with arrow function
+const add = (a, b) => a + b; // Replace null with arrow function
 
 // TODO: Convert this to an arrow function
 function double(n) {
     return n * 2;
 }
 
-const doubleArrow = null; // Replace null
+const doubleArrow = (n) => n * 2; // Replace null
 
 // TODO: Write an arrow function that takes an array of numbers
 // and returns a new array with all values doubled
-const doubleArray = null; // Use map() with arrow function
+const doubleArray = (array) => array.map(doubleArrow); // Use map() with arrow function
 
 document.getElementById('test-arrow').addEventListener('click', () => {
     const output = document.getElementById('output-1');
@@ -51,15 +48,19 @@ const person = {
 // const { name, age } = person;
 
 const colors = ['red', 'green', 'blue', 'yellow'];
+const { name, age } = person
+console.log(name)
+console.log(age)
+
 
 // TODO: Use destructuring to get first and second colors
 // const [first, second] = colors;
-
+const [first, second] = colors;
 // TODO: Write a function that takes an object and uses destructuring
 // in the parameters
-function displayUser(/* destructure here */) {
-    // return `${name} is ${age} years old`;
-    return 'Not implemented';
+function displayUser() {
+
+    return `${name} is ${age} years old`;
 }
 
 document.getElementById('test-destructuring').addEventListener('click', () => {
@@ -84,22 +85,25 @@ document.getElementById('test-destructuring').addEventListener('click', () => {
 // ============================================
 
 const arr1 = [1, 2, 3];
-const arr2 = [4, 5, 6];
+const arr2 = [...arr1, 4, 5, 6];
 
 // TODO: Combine arrays using spread
-const combined = null; // Use [...arr1, ...arr2]
+const combined = arr2; // Use [...arr1, ...arr2]
 
 const obj1 = { a: 1, b: 2 };
 const obj2 = { c: 3, d: 4 };
 
 // TODO: Combine objects using spread
-const combinedObj = null; // Use {...obj1, ...obj2}
+const combinedObj = {...obj1, ...obj2}; // Use {...obj1, ...obj2}
 
 // TODO: Create a function that takes any number of arguments
 // and returns their sum (use rest parameters)
-function sum(/* ...numbers */) {
-    // Use reduce to sum all numbers
-    return 0;
+function sum(...numbers) {
+    let sum = 0
+    for (numb in numbers) {
+        sum += parseFloat(numb) + 1
+    }
+    return sum;
 }
 
 document.getElementById('test-spread').addEventListener('click', () => {
@@ -123,13 +127,18 @@ document.getElementById('test-spread').addEventListener('click', () => {
 // to format a user greeting
 function createGreeting(name, age, city) {
     // Use template literals with ${} for variables
-    return 'Not implemented';
+    return `why are you named ${name}, why are you ${age} years old, and why do you live in ${city}?`;
 }
 
 // TODO: Create a multi-line HTML string using template literals
 function createCard(title, description, price) {
-    // Use template literals for multi-line string
-    return 'Not implemented';
+    return `
+        <div class="card">
+            <h3>${title}</h3>
+            <p>${description}</p>
+            <span>$${price}</span>
+        </div>
+    `;
 }
 
 document.getElementById('test-template').addEventListener('click', () => {

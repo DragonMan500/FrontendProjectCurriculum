@@ -2,13 +2,13 @@
 // Add type annotations to the following code
 
 // TODO: Add type annotations to variables
-let username = 'Alice';
-let age = 25;
-let isActive = true;
-let scores = [95, 87, 92];
+let username: string = 'Alice';
+let age: number = 25;
+let isActive: boolean = true;
+let scores: number[] = [95, 87, 92];
 
 // TODO: Add type annotations to function parameters and return type
-function greet(name, age) {
+function greet( name: string, age: string) {
     return `Hello, ${name}! You are ${age} years old.`;
 }
 
